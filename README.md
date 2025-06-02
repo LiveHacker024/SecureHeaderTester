@@ -14,9 +14,86 @@ A lightweight and modular security header scanner designed for penetration teste
 
 ---
 
+---
+
+If requirements.txt is not available, manually install:
+
+pip3 install requests
+
+🖥️ Usage (CLI)
+
+python3 header_checker.py
+
+Enter a target URL when prompted:
+
+🌐 Enter website URL (with https://): https://example.com
+
+✔️ Output Example:
+
+✅ Content-Security-Policy found ➜ default-src 'self'
+❌ Permissions-Policy NOT found
+⚠️  X-Frame-Options found but value may be weak ➜ ALLOW-FROM
+
+🧩 Integration (Python Module)
+
+from header_checker import check_headers
+
+results = check_headers("https://example.com")
+for header, data in results.items():
+    print(f"{header}: {data['status']} ➜ {data['value']}")
+
+📋 Headers Tested
+
+    Content-Security-Policy
+
+    Strict-Transport-Security
+
+    X-Content-Type-Options
+
+    X-Frame-Options
+
+    X-XSS-Protection
+
+    Referrer-Policy
+
+    Permissions-Policy
+
+    Cross-Origin-Embedder-Policy
+
+    Cross-Origin-Opener-Policy
+
+    Cross-Origin-Resource-Policy
+
+    Set-Cookie (flags check)
+
+    Access-Control-Allow-Origin
+
+    Cache-Control
+
+...and more.
+📄 License
+
+MIT License
+👨‍💻 Author
+
+Developed by [Your Name or Handle]
+🔗 [LinkedIn or Twitter if you'd like]
+🌐 https://yourportfolio.dev
+
+
+---
+
+### ✅ What You Should Do Next:
+- Place the above markdown in your `README.md`
+- Make sure `header_checker.py` exists in your repo
+- Optional: Add a sample `requirements.txt` with just:
+
+requests
+
 ## 🔧 Installation
 
 ```bash
 git clone https://github.com/yourusername/SecureHeaderTester.git
 cd SecureHeaderTester
 pip3 install -r requirements.txt
+
